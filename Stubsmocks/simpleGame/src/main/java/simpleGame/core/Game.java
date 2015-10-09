@@ -53,5 +53,9 @@ public class Game {
         OutOfBoardException {
         return this.board.getNextPawn().move(d);
     }
+    
+    public void setBoard(Board pBoard){
+    	board = pBoard;
+    }
 
 }

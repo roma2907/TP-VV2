@@ -11,7 +11,7 @@ import simpleGame.core.Pawn;
 import simpleGame.exception.OutOfBoardException;
 import static org.mockito.Mockito.mock;
 
-public class testPawn {
+public class TestPawn {
 	
 	private Pawn pawn;
 	private Board board;
@@ -55,14 +55,14 @@ public class testPawn {
 		
 		Mockito.when(board.getYSize()).thenReturn(7);
 		Mockito.when(board.getXSize()).thenReturn(6);
-		Mockito.when(board.getSquareContent(3,4)).thenReturn(pawnedAtacked);
+		Mockito.when(board.getSquareContent(4,3)).thenReturn(pawnedAtacked);
 		Mockito.when(board.isBonusSquare(3, 3)).thenReturn(false);
 		
 		String result = pawn.move(Direction.Right);
 
 		Mockito.verify(board).getXSize();
 		Mockito.verify(board).getYSize();
-		Mockito.verify(board).getSquareContent(3,4);
+		Mockito.verify(board).getSquareContent(4,3);
 		Mockito.verify(board).isBonusSquare(3, 3);
 		
 		Assert.assertEquals("p attacks!\na loses 1 hitpoints.",result);
